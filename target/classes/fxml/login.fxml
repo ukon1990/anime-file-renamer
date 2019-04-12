@@ -8,7 +8,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="431.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<GridPane
+        fx:controller="net.jonaskf.gui.LoginController"
+        maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="431.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -20,9 +22,9 @@
             <children>
                 <Label layoutX="78.0" layoutY="76.0" text="Brukernavn:" />
                 <Label layoutX="80.0" layoutY="112.0" text="Passord:" />
-                <TextField layoutX="174.0" layoutY="71.0" />
-                <PasswordField layoutX="174.0" layoutY="107.0" />
-                <Button layoutX="79.0" layoutY="152.0" mnemonicParsing="false" text="Logg inn" />
+                <TextField fx:id="usernameField" layoutX="174.0" layoutY="71.0" />
+                <PasswordField fx:id="passwordField" layoutX="174.0" layoutY="107.0" />
+                <Button layoutX="79.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleLoginEvent" onTouchReleased="#handleLoginEvent" text="Logg inn" />
                 <Button layoutX="229.0" layoutY="152.0" mnemonicParsing="false" text="Glemt passord" />
             </children>
         </AnchorPane>
