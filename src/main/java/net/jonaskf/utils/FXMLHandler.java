@@ -32,4 +32,8 @@ public class FXMLHandler {
             e.printStackTrace();
         }
     }
+
+    private static void setWidth(Stage stage, double width) {
+        stage.setWidth(width);
+    }
 }
