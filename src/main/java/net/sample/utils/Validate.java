@@ -1,4 +1,4 @@
-package net.jonaskf.utils;
+package net.sample.utils;
 
 public class Validate {
     public static boolean isValidEmail(String mail) {

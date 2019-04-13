@@ -1,6 +1,4 @@
-package net.jonaskf.models;
-
-import java.util.List;
+package net.sample.models;
 
 public class Person {
     private String name;

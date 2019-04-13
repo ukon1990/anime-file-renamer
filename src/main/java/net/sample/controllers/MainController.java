@@ -1,4 +1,4 @@
-package net.jonaskf.controllers;
+package net.sample.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

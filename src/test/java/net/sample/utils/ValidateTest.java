@@ -1,4 +1,4 @@
-package net.jonaskf.utils;
+package net.sample.utils;
 
 import org.junit.jupiter.api.Test;
 

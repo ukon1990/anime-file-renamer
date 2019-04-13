@@ -1,4 +1,4 @@
-package net.jonaskf.utils;
+package net.sample.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

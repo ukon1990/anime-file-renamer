@@ -1,16 +1,12 @@
-package net.jonaskf;
+package net.sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import net.jonaskf.utils.FXMLHandler;
 
-import java.net.URL;
-import java.nio.file.Paths;
-
-import static net.jonaskf.utils.FXMLHandler.getFXML;
+import static net.sample.utils.FXMLHandler.getFXML;
 
 /**
  * Det skal lages et Java-program til et vikarbyrå. Vikarbyråets oppgave er å formidle kontakt mellom
@@ -28,8 +24,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getFXML("main")); // login
-        stage.setTitle("Super temps");
+        Parent root = FXMLLoader.load(getFXML("main"));
+        stage.setTitle("App name");
         stage.setScene(new Scene(root));
         stage.show();
     }
