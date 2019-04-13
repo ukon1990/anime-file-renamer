@@ -19,11 +19,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="vikar" />
+        <module name="base-javafx11-maven-project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="vikar" target="11" />
+      <module name="base-javafx11-maven-project" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/vikar.iml" filepath="$PROJECT_DIR$/vikar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-javafx11-maven-project.iml" filepath="$PROJECT_DIR$/base-javafx11-maven-project.iml" />
     </modules>
   </component>
 </project>
