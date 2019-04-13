@@ -1,6 +1,8 @@
+net/jonaskf/gui/TableController.class
 net/jonaskf/utils/FXMLHandler.class
 net/jonaskf/models/person/Temp.class
 net/jonaskf/gui/MainController.class
 net/jonaskf/gui/LoginController.class
 net/jonaskf/models/ErrorMessage.class
 net/jonaskf/utils/files/FileReader.class
+net/jonaskf/models/CompanyTableObject.class
