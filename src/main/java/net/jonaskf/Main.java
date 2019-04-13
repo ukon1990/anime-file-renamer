@@ -30,7 +30,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getFXML("main")); // login
         stage.setTitle("Super temps");
-        stage.setScene(new Scene(root, 431, 256));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 }
