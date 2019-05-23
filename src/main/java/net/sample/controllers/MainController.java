@@ -69,8 +69,9 @@ public class MainController implements Initializable {
 
     @FXML
     private void renameFiles(ActionEvent event) {
-        System.out.println("TODO!");
+        replaceList.forEach(this::renameFile);
     }
+
 
     private boolean handleDirectorySelection(String s) {
         File folder = new File(s);
@@ -133,6 +134,25 @@ public class MainController implements Initializable {
         return episode.getEpisode() < 10 ? "0" + episode.getEpisode() : episode.getEpisode() + "";
     }
 
+    private void renameFile(FileToReplace file) {
+        String path = folderPathField.getText() + "/" +
+                file.getSeasonFolder() + "/";
+        File directory = new File(path);
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+
+        File newFile = new File(
+                path +
+                        file.getNewName());
+
+        if (file.getFile().renameTo(newFile)) {
+            System.out.println("Successfully renamed file at: " + newFile.getPath());
+        } else {
+            System.out.println("Could not rename");
+        }
+    }
+
     private void setEpisodeColumns() {
         episodeTableController.addColumn("Num", "episodeNumber", Integer.class);
         episodeTableController.addColumn("Season", "season", String.class);
@@ -150,13 +170,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        searchField.setText("One piece");
-        folderPathField.setText("/Users/jonas/Dropbox/scripts_unix/scripts/one-piece-renamer/input");
-
         setEpisodeColumns();
         setFileColumns();
-        this.search(null);
-        this.handleDirectorySelection(folderPathField.getText());
     }
 
 }
