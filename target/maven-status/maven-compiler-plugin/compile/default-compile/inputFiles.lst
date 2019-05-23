@@ -1,6 +1,10 @@
-/Users/jonas/Dev/Hobby/Java/vikar/src/main/java/net/jonaskf/models/Person.java
-/Users/jonas/Dev/Hobby/Java/vikar/src/main/java/net/jonaskf/controllers/TableController.java
-/Users/jonas/Dev/Hobby/Java/vikar/src/main/java/net/jonaskf/utils/FXMLHandler.java
-/Users/jonas/Dev/Hobby/Java/vikar/src/main/java/net/jonaskf/Main.java
-/Users/jonas/Dev/Hobby/Java/vikar/src/main/java/net/jonaskf/utils/Validate.java
-/Users/jonas/Dev/Hobby/Java/vikar/src/main/java/net/jonaskf/controllers/MainController.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/utils/FXMLHandler.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/models/Show.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/models/TVDB.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/controllers/MainController.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/models/Person.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/Main.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/controllers/TableController.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/utils/Validate.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/utils/Regex.java
+/Users/jonas/Dev/Hobby/Java/anime-renamer/src/main/java/net/sample/utils/TVDBUtil.java

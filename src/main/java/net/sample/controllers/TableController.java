@@ -5,7 +5,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import net.sample.models.Person;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,30 +15,33 @@ public class TableController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    }
+
+    void addColumns(TableColumn... columns) {
         this.tableView
                 .getColumns()
-                .addAll(
-                        this.getColumn("Name", "name", String.class),
-                        this.getColumn("Age", "age", Integer.class),
-                        this.getColumn("Profession", "profession", String.class));
-
-
-        this.add(
-                new Person("Li Hua", 25, "Consultant"));
-        this.add(
-                new Person("Joel", 34, "Private contractor"));
+                .addAll(columns);
     }
 
     private <T> TableColumn getColumn(String title, String key, Class<T> type) {
         TableColumn column = new TableColumn(title);
         column.setCellValueFactory(
-                new PropertyValueFactory<Person, T>(key));
+                new PropertyValueFactory<Object, T>(key));
         return column;
     }
 
-    private void add(Object object) {
+    void add(Object object) {
         this.tableView
                 .getItems()
                 .add(object);
+    }
+
+    public void clear() {
+        this.tableView.getItems().clear();
+    }
+
+    <T>void addColumn(String title, String key, Class<T> type) {
+        TableColumn column = this.getColumn(title, key, type);
+        this.tableView.getColumns().add(column);
     }
 }
