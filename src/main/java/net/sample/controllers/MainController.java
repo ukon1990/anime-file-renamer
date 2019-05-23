@@ -13,7 +13,9 @@ import net.sample.utils.TVDBUtil;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 
@@ -23,6 +25,7 @@ import static net.sample.utils.Regex.getMatches;
 public class MainController implements Initializable {
     private TVDBUtil tvdb = new TVDBUtil();
     private Show show;
+    private List<FileToReplace> replaceList = new ArrayList<>();
 
     @FXML
     private Parent episodeTable;
@@ -42,6 +45,8 @@ public class MainController implements Initializable {
     private Label nameLabel;
     @FXML
     private Label episodeLabel;
+    @FXML
+    private Label filesToCorrectLabel;
 
     @FXML
     private void search(ActionEvent event) {
@@ -62,9 +67,16 @@ public class MainController implements Initializable {
         openFolderPicker(this::handleDirectorySelection);
     }
 
+    @FXML
+    private void renameFiles(ActionEvent event) {
+        System.out.println("TODO!");
+    }
+
     private boolean handleDirectorySelection(String s) {
         File folder = new File(s);
         File[] files = folder.listFiles();
+        replaceList.clear();
+
 
         folderPathField.setText(s);
 
@@ -84,25 +96,28 @@ public class MainController implements Initializable {
             }
         }
 
+        filesToCorrectLabel.setText(replaceList.size() + "");
 
         return true;
     }
 
     private void addFileIfEpisodeMatchFound(File file, int index) {
         if (this.show.getEpisodes().get(index) != null) {
-            Episode episode = this.show.getEpisodes().get(index);
+            Episode episode = this.show.getEpisodes().get(index - 1);
             Matcher extensionMatch = getMatches(
                     file.getName(),
                     "(\\.[a-z]{1,5})");
 
             if (extensionMatch.find()) {
-                fileTableController.add(
-                        new FileToReplace(
-                                index,
-                                file.getName(),
-                                getNewName(episode, extensionMatch),
-                                "Season " + episode.getSeason(),
-                                file));
+                FileToReplace ftr = new FileToReplace(
+                        index,
+                        file.getName(),
+                        getNewName(episode, extensionMatch),
+                        "Season " + episode.getSeason(),
+                        file);
+
+                replaceList.add(ftr);
+                fileTableController.add(ftr);
             }
         }
     }
@@ -111,11 +126,11 @@ public class MainController implements Initializable {
         return nameLabel.getText() +
                 " - s" + episode.getSeason() +
                 "e" + getEpisodeString(episode) +
-            extensionMatch.group(0);
+                extensionMatch.group(0);
     }
 
-    private Object getEpisodeString(Episode episode) {
-        return episode.getEpisode() < 10 ? "0" +  episode.getEpisode() :  episode.getEpisode();
+    private String getEpisodeString(Episode episode) {
+        return episode.getEpisode() < 10 ? "0" + episode.getEpisode() : episode.getEpisode() + "";
     }
 
     private void setEpisodeColumns() {
