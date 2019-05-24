@@ -17,8 +17,15 @@ import static net.sample.utils.FXMLHandler.getFXML;
  * Trenger altså 1 side for jobbsøkere/vikarer og en side for arbeidsgivere
  */
 public class Main extends Application {
+    static String initDir;
 
     public static void main(String[] args) {
+        Main.initDir = System.getProperty("user.dir");
+        System.out.println(initDir);
+        if (args != null) {
+            System.out.println(args);
+        }
+
         launch(args);
     }
 

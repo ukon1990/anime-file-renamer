@@ -19,11 +19,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="base-javafx11-maven-project" />
+        <module name="Anime file season organizer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="base-javafx11-maven-project" target="11" />
+      <module name="Anime file season organizer" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

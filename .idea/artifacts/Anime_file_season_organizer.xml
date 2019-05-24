@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Anime file season organizer">
+    <output-path>$PROJECT_DIR$/out/artifacts/Anime_file_season_organizer</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="net.sample.Main" />
+        <option name="description" value="Some info?" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Anime file season organizer" />
+        <option name="vendor" value="net.sample" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Anime_file_season_organizer.jar">
+        <element id="module-output" name="Anime file season organizer" />
+      </element>
+    </root>
+  </artifact>
+</component>
