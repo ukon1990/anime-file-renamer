@@ -13,10 +13,7 @@ import net.sample.utils.TVDBUtil;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.regex.Matcher;
 
 import static net.sample.utils.FileReader.openFolderPicker;
@@ -83,6 +80,7 @@ public class MainController implements Initializable {
     private boolean handleDirectorySelection(File folder) {
         File[] files = folder.listFiles();
         replaceList.clear();
+        fileTableController.clear();
 
 
         folderPathField.setText(folder.getPath());
@@ -99,7 +97,6 @@ public class MainController implements Initializable {
                             file.getName(),
                             regexField.getText());
                     if (numberMatch.find()) {
-                        System.out.println("Group match: " + numberMatch.group());
                         int index = Integer.parseInt(numberMatch.group(0).replaceAll(" ", ""));
                         addFileIfEpisodeMatchFound(file, index);
                     } else {
@@ -107,6 +104,9 @@ public class MainController implements Initializable {
                     }
                 }
             }
+            Collections.sort(replaceList, Comparator.comparingInt(FileToReplace::getNumber));
+            replaceList.forEach(
+                    fileTableController::add);
         }
 
         filesToCorrectLabel.setText(replaceList.size() + "");
@@ -130,7 +130,6 @@ public class MainController implements Initializable {
                         file);
 
                 replaceList.add(ftr);
-                fileTableController.add(ftr);
             }
         }
     }
