@@ -40,6 +40,8 @@ public class MainController implements Initializable {
     private TextField searchField;
     @FXML
     private TextField folderPathField;
+    @FXML
+    private TextField regexField;
 
     @FXML
     private Label nameLabel;
@@ -72,23 +74,33 @@ public class MainController implements Initializable {
         replaceList.forEach(this::renameFile);
     }
 
+    @FXML
+    private void reProcessFiles(ActionEvent event) {
+        handleDirectorySelection(new File(folderPathField.getText()));
+    }
 
-    private boolean handleDirectorySelection(String s) {
-        File folder = new File(s);
+
+    private boolean handleDirectorySelection(File folder) {
         File[] files = folder.listFiles();
         replaceList.clear();
 
 
-        folderPathField.setText(s);
+        folderPathField.setText(folder.getPath());
+
+        if (searchField.getText() == null || searchField.getText().length() == 0) {
+            searchField.setText(folder.getName());
+            search(null);
+        }
 
         if (files != null && this.show != null) {
             for (File file : files) {
                 if (file.isFile()) {
                     Matcher numberMatch = getMatches(
                             file.getName(),
-                            "([\\d]{1,})");
+                            regexField.getText());
                     if (numberMatch.find()) {
-                        int index = Integer.parseInt(numberMatch.group(0));
+                        System.out.println("Group match: " + numberMatch.group());
+                        int index = Integer.parseInt(numberMatch.group(0).replaceAll(" ", ""));
                         addFileIfEpisodeMatchFound(file, index);
                     } else {
                         System.out.println("Number not found: " + file.getName());
@@ -172,6 +184,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setEpisodeColumns();
         setFileColumns();
+        regexField.setText("( [\\d]{1,})");
     }
 
 }

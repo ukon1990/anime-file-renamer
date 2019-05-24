@@ -10,13 +10,13 @@ import java.util.function.Function;
 import static net.sample.utils.ErrorHandler.displayErrorMessage;
 
 public class FileReader {
-    public static void openFolderPicker(Function<String, Boolean> function) {
+    public static void openFolderPicker(Function<File, Boolean> function) {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Open Resource File");
         File selectedFile = directoryChooser.showDialog(null);
         if (selectedFile != null) {
             handleFile(selectedFile);
-            function.apply(selectedFile.getPath());
+            function.apply(selectedFile);
         }
     }
 

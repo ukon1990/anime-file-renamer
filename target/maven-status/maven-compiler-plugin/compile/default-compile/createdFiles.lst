@@ -6,9 +6,9 @@ net/sample/models/Show.class
 net/sample/utils/Validate.class
 net/sample/Main.class
 net/sample/models/ErrorMessage.class
-net/sample/utils/Regex.class
 net/sample/models/FileToReplace.class
+net/sample/utils/Regex.class
 net/sample/utils/ErrorHandler.class
 net/sample/controllers/MainController.class
-net/sample/models/Person.class
 net/sample/models/Episode.class
+net/sample/models/Person.class

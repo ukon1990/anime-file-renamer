@@ -22,11 +22,15 @@
                                 <Label fx:id="nameLabel" layoutX="93.0" layoutY="53.0" prefHeight="17.0" prefWidth="492.0" />
                                 <Label layoutX="14.0" layoutY="84.0" text="Episodes:" />
                                 <Label fx:id="episodeLabel" layoutX="93.0" layoutY="84.0" prefHeight="17.0" prefWidth="489.0" />
-                                <Button layoutX="489.0" layoutY="107.0" mnemonicParsing="false" onAction="#getFilesInDirectory" prefHeight="27.0" prefWidth="97.0" text="Get folder" />
-                                <TextField fx:id="folderPathField" layoutX="14.0" layoutY="107.0" onAction="#getFilesInDirectory" prefHeight="27.0" prefWidth="464.0" />
-                        <Label layoutX="14.0" layoutY="146.0" text="Files to correct:" />
-                        <Label fx:id="filesToCorrectLabel" layoutX="117.0" layoutY="146.0" />
-                        <Button layoutX="453.0" layoutY="141.0" mnemonicParsing="false" onAction="#renameFiles" text="Batch rename files" />
+                                <Button layoutX="490.0" layoutY="101.0" mnemonicParsing="false" onAction="#getFilesInDirectory" prefHeight="27.0" prefWidth="97.0" text="Get folder" />
+                                <TextField fx:id="folderPathField" layoutX="121.0" layoutY="101.0" onAction="#getFilesInDirectory" prefHeight="27.0" prefWidth="358.0" />
+                        <Label layoutX="14.0" layoutY="185.0" text="Files to correct:" />
+                        <Label fx:id="filesToCorrectLabel" layoutX="117.0" layoutY="185.0" prefHeight="15.0" prefWidth="326.0" text="0" />
+                        <Button layoutX="453.0" layoutY="180.0" mnemonicParsing="false" onAction="#renameFiles" text="Batch rename files" />
+                        <Label layoutX="16.0" layoutY="107.0" text="Directory path:" />
+                        <Label layoutX="14.0" layoutY="139.0" text="Episode number regex:" />
+                        <TextField fx:id="regexField" layoutX="178.0" layoutY="134.0" onAction="#reProcessFiles" prefHeight="25.0" prefWidth="298.0" />
+                        <Button layoutX="489.0" layoutY="134.0" mnemonicParsing="false" onAction="#reProcessFiles" prefHeight="25.0" prefWidth="97.0" text="Re-process" />
                             </children>
                         </AnchorPane>
                     </content>
