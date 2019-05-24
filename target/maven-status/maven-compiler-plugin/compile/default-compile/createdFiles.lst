@@ -8,7 +8,6 @@ net/sample/Main.class
 net/sample/models/ErrorMessage.class
 net/sample/models/FileToReplace.class
 net/sample/utils/Regex.class
-net/sample/controllers/MainController$1.class
 net/sample/utils/ErrorHandler.class
 net/sample/controllers/MainController.class
 net/sample/models/Episode.class

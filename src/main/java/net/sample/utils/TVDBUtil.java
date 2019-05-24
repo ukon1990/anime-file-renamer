@@ -7,6 +7,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -67,25 +69,30 @@ public class TVDBUtil {
     }
 
     private Show getShow(String name) {
-        String query = "http://thetvdb.com/api/GetSeries.php?seriesname=" + name.replaceAll("\\s", "+").toLowerCase();
-        System.out.println(query);
-        Document doc = null;
         try {
-            doc = Jsoup.connect(query)
-                    .userAgent(browser)
-                    .get();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
+            String query = "http://thetvdb.com/api/GetSeries.php?seriesname=" + URLEncoder.encode(name, "UTF-8");
+            System.out.println(query);
+            Document doc = null;
+            try {
+                doc = Jsoup.connect(query)
+                        .userAgent(browser)
+                        .get();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            Elements queryResults = doc.getElementsByTag("Series");
+            for (int i = 0; i < queryResults.size(); i++) {
+                if (isSeriesName(name, queryResults, i)) {
+                    return new Show(
+                            getElementValue(queryResults, i, "seriesid"),
+                            getElementValue(queryResults, i, "SeriesName"));
+                }
+            }
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        Elements queryResults = doc.getElementsByTag("Series");
-        for (int i = 0; i < queryResults.size(); i++) {
-            if (isSeriesName(name, queryResults, i)) {
-                return new Show(
-                        getElementValue(queryResults, i, "seriesid"),
-                        getElementValue(queryResults, i, "SeriesName"));
-            }
-        }
+
         return null;
     }
 
@@ -103,7 +110,8 @@ public class TVDBUtil {
             int season = Integer.parseInt(getElementValue(episodes, e, "SeasonNumber"));
             int episode = Integer.parseInt(getElementValue(episodes, e, "EpisodeNumber"));
             String episodeName = getElementValue(episodes, e, "EpisodeName");
-            Date firstAired = new SimpleDateFormat("yyyy-mm-dd").parse(getElementValue(episodes, e, "FirstAired"));
+            Date firstAired = new SimpleDateFormat("yyyy-mm-dd").parse(
+                    getElementValue(episodes, e, "FirstAired"));
 
             if (season != 0) {
                 list.add(new Episode(
